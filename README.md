@@ -11,9 +11,7 @@ Quick Rest API to modify an ontology. Considering we've got an ontology for comp
 | DELETE | http://[host]/companyontology/concepts/[classname] | Delete a concept |
 | GET | http://[host]/companyontology/concepts/ | Retrieve the ontology in OWL |
 
-To add a concept (ie. class), we have to give the name of the new class, ie `classname`. The new class will be a subclass of the `Company` class.
-
-It's also possible to indicate that the new class is a subclass of another class. In this case the `superclassname` should be given.
+To add a concept (ie. class), we have to give the name of the new class, ie `classname`. By default, the new class will be a subclass of the `Company` class. To create a subclass of an existing class, the `superclassname` should be given.
 
 
 ## Tests
@@ -52,3 +50,6 @@ Or [Postman](https://www.getpostman.com/).
 Not a lot of ontology libraries in python are still maintained. It looks like [owlready2][1] is still alive and kicking so we took a walk with it. An alternative may have been [rdflib][2] but it doesn't have an ontology editor.
 
 Flask is used for the Rest API. It's clean and not bloated, so ok for a small API. For something bigger (with authentifications,...), Django would have been better.
+
+[1]: https://pythonhosted.org/Owlready2/
+[2]: https://rdflib.readthedocs.io/en/stable/index.html
