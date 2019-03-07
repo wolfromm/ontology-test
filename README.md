@@ -38,8 +38,10 @@ You can run the tests to check how the app is working:
 
 Or use curl :
 
-> curl http://localhost:5000/companyontology/concepts
-> curl -X POST -F 'classname=RetailBank' -F 'superclassname=Bank' http://localhost:5000/companyontology/concepts
-> curl -X DELETE http://localhost:5000/companyontology/concepts/Airline
+```bash
+curl http://localhost:5000/companyontology/concepts
+curl -X POST -F 'classname=RetailBank' -F 'superclassname=Bank' http://localhost:5000/companyontology/concepts
+curl -X DELETE http://localhost:5000/companyontology/concepts/Airline
+```
 
 Or [Postman](https://www.getpostman.com/).

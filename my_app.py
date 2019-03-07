@@ -1,7 +1,7 @@
 import types
 from flask import Flask
 from flask import request, abort
-from owlready2 import get_ontology
+from owlready2 import get_ontology, destroy_entity
 
 
 def init_onto():
@@ -40,7 +40,11 @@ def add_concept():
 
 @app.route('/companyontology/concepts/<classname>', methods=['DELETE'])
 def remove_concept(classname):
-    pass
+    if onto[classname]:
+        destroy_entity(onto[classname])
+    else:
+        return("Class to remove not found")
+    return classname
 
 
 if __name__ == '__main__':
