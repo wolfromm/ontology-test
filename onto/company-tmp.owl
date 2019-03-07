@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://test.org/company.owl"
+         xmlns="http://test.org/company.owl#">
+
+<owl:Ontology rdf:about="http://test.org/company.owl"/>
+
+<owl:Class rdf:about="#Company">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Bank">
+  <rdfs:subClassOf rdf:resource="#Company"/>
+</owl:Class>
+
+<owl:Class rdf:about="#InvestmentBank">
+  <rdfs:subClassOf rdf:resource="#Bank"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PrivateBank">
+  <rdfs:subClassOf rdf:resource="#Bank"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Airline">
+  <rdfs:subClassOf rdf:resource="#Company"/>
+</owl:Class>
+
+<Airline rdf:about="#AirFrance">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Airline>
+
+<Airline rdf:about="#Qantas">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Airline>
+
+<PrivateBank rdf:about="#UBSWealthManagement">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</PrivateBank>
+
+<InvestmentBank rdf:about="#GoldmanSachs">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</InvestmentBank>
+
+<Bank rdf:about="#CreditSuisse">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Bank>
+
+
+</rdf:RDF>

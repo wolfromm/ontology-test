@@ -5,20 +5,15 @@ from owlready2 import get_ontology, destroy_entity
 
 
 def init_onto():
-    # TODO "It is safe to call .load() several times on the same ontology. It
-    # will be loaded only once.", accoridng to the doc.  But how to re-init?
-    # -> be careful to the ordering of the tests!
+    # TODO Read the docs / code of owlready to understand how to do a
+    # re-initialization of the ontology. Meanwhile, be careful to the ordering
+    # of the tests!
     onto = get_ontology("file://onto/company.owl").load()
     return onto
 
 
 onto = init_onto()
 app = Flask(__name__)
-
-
-@app.route('/companyontology/concepts', methods=['GET'])
-def download_ontology():
-    pass
 
 
 @app.route('/companyontology/concepts', methods=['POST'])
@@ -45,6 +40,15 @@ def remove_concept(classname):
     else:
         return("Class to remove not found")
     return classname
+
+
+@app.route('/companyontology/concepts', methods=['GET'])
+def download_ontology():
+    # TODO Check how to avoid this tmp file
+    onto.save(file="onto/company-tmp.owl")
+    with open("onto/company-tmp.owl") as f:
+        owl_txt = f.read()
+    return owl_txt
 
 
 if __name__ == '__main__':
