@@ -22,3 +22,13 @@ class TestIntegrations(TestCase):
         assert self.onto[superclassname] is not None
         assert res.status_code == 201   # HTTP code for "created"
 
+    def test_add_concept_w_valid_classname_and_wo_superclassname(self):
+        classname = "Insurance"
+
+        assert self.onto[classname] is None
+
+        res = self.app.post('/companyontology/concepts',
+                            data=dict(classname=classname))
+
+        assert self.onto[classname] is not None
+        assert res.status_code == 201   # HTTP code for "created"

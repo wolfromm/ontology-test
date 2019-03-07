@@ -11,6 +11,10 @@ Quick Rest API to modify an ontology.
 | DELETE | http://[host]/companyontology/concepts/[classname] | Delete a concept |
 | GET | http://[host]/companyontology/concepts/ | Retrieve the ontology in OWL |
 
+To add a concept (ie. class), we have to give the name of the new class. The new class will be a subclass of the `Company` class.
+
+It's also possible to indicate that the new class is a subclass of another class. In this case the superclassname should be given.
+
 
 ## Tests
 
